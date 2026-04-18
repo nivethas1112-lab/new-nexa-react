@@ -64,7 +64,7 @@ const HomePage = () => {
           <div className="hero-image">
             <img
               ref={heroRef}
-              src="images/218-2186550_software-png-transparent-image-software-solutions-removebg-preview.png"
+              src="/images/218-2186550_software-png-transparent-image-software-solutions-removebg-preview.png"
               alt="Digital Solutions Illustration"
               className={`img-animate${heroVisible ? ' img-visible' : ''}`}
             />
@@ -111,7 +111,7 @@ const HomePage = () => {
       <section className="section about" style={{ backgroundColor: 'rgba(255, 255, 255, 0.98)' }}>
         <div className="container">
           <div className="about-image">
-            <img src="images/pngtree-software-development-isometric-web-concept-png-image_11719509.png" alt="Nexa Digital Team" />
+            <img src="/images/pngtree-software-development-isometric-web-concept-png-image_11719509.png" alt="Nexa Digital Team" />
           </div>
           <div>
             <h2 className="title">Crafting digital excellence since 2018</h2>

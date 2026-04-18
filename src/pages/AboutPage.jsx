@@ -42,7 +42,7 @@ const AboutPage = () => {
             <div>
               <img
                 ref={imgRef}
-                src="images/teamwork-business-analytics-isometric-concept-illustration-team-analyst-managers-well-coordinated-development-marketing-system-creative-staff-management-successful-partnership_146957-632.avif"
+                src="/images/teamwork-business-analytics-isometric-concept-illustration-team-analyst-managers-well-coordinated-development-marketing-system-creative-staff-management-successful-partnership_146957-632.avif"
                 alt="Office Collaboration"
                 className={`img-animate${imgVisible ? ' img-visible' : ''}`}
                 style={{ width: '100%', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-lg)' }}
