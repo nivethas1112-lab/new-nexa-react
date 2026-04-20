@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <header>
       <div className="container">
-        <Link to="/" className="logo" style={{ color: 'var(--secondary)' }}>
+        <Link to="/" className="logo" style={{ color: 'var(--secondary)' }} onClick={() => setIsMenuOpen(false)}>
           <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="4 14 10 8 15 13 20 8"></polyline>
@@ -40,18 +40,20 @@ const Header = () => {
           <span style={{ fontSize: '1.75rem' }}>Nexa<span style={{ color: 'var(--primary)' }}>.</span></span>
         </Link>
         <nav className={`nav-links ${isMenuOpen ? 'mobile-open' : ''}`}>
-          <Link to="/" className={isActive('/')}>Home</Link>
-          <Link to="/about" className={isActive('/about')}>About</Link>
-          <Link to="/services" className={isActive('/services')}>Services</Link>
-          <Link to="/projects" className={isActive('/projects')}>Projects</Link>
-          <Link to="/blog" className={isActive('/blog')}>Blog</Link>
-          <Link to="/contact" className={isActive('/contact')}>Contact</Link>
+          <Link to="/" className={isActive('/')} onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <Link to="/about" className={isActive('/about')} onClick={() => setIsMenuOpen(false)}>About</Link>
+          <Link to="/services" className={isActive('/services')} onClick={() => setIsMenuOpen(false)}>Services</Link>
+          <Link to="/projects" className={isActive('/projects')} onClick={() => setIsMenuOpen(false)}>Projects</Link>
+          <Link to="/blog" className={isActive('/blog')} onClick={() => setIsMenuOpen(false)}>Blog</Link>
+          <Link to="/contact" className={isActive('/contact')} onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          <Link to="/contact" className="mobile-only btn btn-primary" onClick={() => setIsMenuOpen(false)}>Get Started</Link>
         </nav>
-        <Link to="/contact" className="btn btn-primary" style={{ display: 'none', '@media (min-width: 768px)': { display: 'inline-flex' } }}>
+        <Link to="/contact" className="btn btn-primary desktop-only">
           Get Started
         </Link>
-        <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)} style={{ display: 'none' }}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+
+        <button className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
     </header>
@@ -88,9 +90,10 @@ const Footer = () => {
           <div>
             <h4 className="footer-title">Contact Info</h4>
             <ul className="footer-links">
-              <li>123 Tech Avenue, Silicon Valley, CA 94025</li>
-              <li>contact@nexadigital.com</li>
-              <li>+1 (555) 123-4567</li>
+              <li>Camp Road Junction, Selaiyur, 
+                East Tambaram</li>
+              <li>Contact@nexadigital.com</li>
+              <li>+91 (555) 123-4567</li>
             </ul>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import Reveal from '../hooks/Reveal';
 
 import imgWeb from '../assets/pngtree-web-development-illustration-modern-png-image_4461019.png';
 import imgMobile from '../assets/mobile-app-developmet-1.png';
@@ -37,8 +38,12 @@ const ServiceDetailPage = () => {
     <>
       <div className="page-header">
         <div className="container">
-          <h1>{content.title}</h1>
-          <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)' }}>Advanced Digital Solutions</p>
+          <Reveal>
+            <h1>{content.title}</h1>
+          </Reveal>
+          <Reveal delay="delay-1">
+            <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)' }}>Advanced Digital Solutions</p>
+          </Reveal>
         </div>
       </div>
       
@@ -46,15 +51,21 @@ const ServiceDetailPage = () => {
         <div className="container">
           <div className="grid grid-2" style={{ gap: '4rem', alignItems: 'center' }}>
             <div>
-              <h2 className="title" style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Empowering your business</h2>
-              <p style={{ fontSize: '1.125rem', color: 'var(--muted)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
-                {content.description}
-              </p>
-              <p style={{ fontSize: '1.125rem', color: 'var(--muted)', lineHeight: '1.8', marginBottom: '2rem' }}>
-                We believe in delivering scalable, secure, and modern infrastructure. Our team works hand-in-hand with your stakeholders to ensure full alignment with your overarching goals.
-              </p>
+              <Reveal>
+                <h2 className="title" style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Empowering your business</h2>
+                <p style={{ fontSize: '1.125rem', color: 'var(--muted)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+                  {content.description}
+                </p>
+                <p style={{ fontSize: '1.125rem', color: 'var(--muted)', lineHeight: '1.8', marginBottom: '2rem' }}>
+                  We believe in delivering scalable, secure, and modern infrastructure. Our team works hand-in-hand with your stakeholders to ensure full alignment with your overarching goals.
+                </p>
+              </Reveal>
               <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', color: 'var(--secondary)', fontSize: '1.125rem', lineHeight: '2' }}>
-                {content.features.map((feature, i) => <li key={i}>{feature}</li>)}
+                {content.features.map((feature, i) => (
+                  <Reveal key={i} delay={`delay-${i + 1}`}>
+                    <li>{feature}</li>
+                  </Reveal>
+                ))}
               </ul>
             </div>
             <div>
@@ -69,7 +80,9 @@ const ServiceDetailPage = () => {
           </div>
           
           <div className="text-center" style={{ marginTop: '4rem' }}>
-            <Link to="/contact" className="btn btn-primary">Request a Custom Proposal</Link>
+            <Reveal delay="delay-2">
+              <Link to="/contact" className="btn btn-primary">Request a Custom Proposal</Link>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -78,3 +91,4 @@ const ServiceDetailPage = () => {
 };
 
 export default ServiceDetailPage;
+
